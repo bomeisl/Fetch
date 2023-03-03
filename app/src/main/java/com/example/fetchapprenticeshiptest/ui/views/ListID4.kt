@@ -17,6 +17,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -61,16 +62,16 @@ fun ItemCard4(item: Item_DB) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Row() {
-                Text(text = "Item Name: ", fontSize = 20.sp)
-                Text(text = item.name, fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = "Item Name: ", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                Text(text = item.name, fontSize = 20.sp, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold)
             }
             Row() {
-                Text(text = "Item ID: ", fontSize = 20.sp)
-                Text(text = item.id.toString(), fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = "Item ID: ", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                Text(text = item.id.toString(), fontSize = 20.sp, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold)
             }
             Row() {
-                Text(text = "Item's List ID: ", fontSize = 20.sp)
-                Text(text = item.listID.toString(), fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = "Item's List ID: ", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                Text(text = item.listID.toString(), fontSize = 20.sp, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold)
             }
 
         }

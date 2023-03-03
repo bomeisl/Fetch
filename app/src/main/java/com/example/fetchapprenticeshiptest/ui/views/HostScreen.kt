@@ -1,22 +1,15 @@
 package com.example.fetchapprenticeshiptest.ui.views
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.fetchapprenticeshiptest.data.databases.Item_DB
 import com.example.fetchapprenticeshiptest.ui.viewmodels.HomeViewModel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.filter
 
 enum class Routes {
     HOME, PAGE1, PAGE2, PAGE3, PAGE4
