@@ -19,14 +19,21 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(itemsRepository: ItemsRepository): ViewModel() {
 
-
-
     var itemList: MutableStateFlow<List<Item_DB>> = MutableStateFlow(listOf())
-
+    var item1List: MutableStateFlow<List<Item_DB>> = MutableStateFlow(listOf())
+    var item2List: MutableStateFlow<List<Item_DB>> = MutableStateFlow(listOf())
+    var item3List: MutableStateFlow<List<Item_DB>> = MutableStateFlow(listOf())
+    var item4List: MutableStateFlow<List<Item_DB>> = MutableStateFlow(listOf())
     fun refreshViewModel(itemsRepository: ItemsRepository) {
             viewModelScope.launch(Dispatchers.IO) {
                 itemsRepository.refreshDatabase()
-                itemList.value = itemsRepository.returnDBResults()
+                val results = itemsRepository.returnDBResults()
+                itemList.value = results
+                item1List.value = results.filter { it.listID == 1 }
+                item2List.value = results.filter { it.listID == 2 }
+                item3List.value = results.filter { it.listID == 3 }
+                item4List.value = results.filter { it.listID == 4 }
+
             }
     }
 

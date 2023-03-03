@@ -19,10 +19,12 @@ data class Item_DB(
 @Dao
 interface ItemDao {
 
-    @Query("SELECT * FROM Items WHERE :listID = listID ORDER BY id")
-    fun pullItembyListID(listID: Int): Flow<List<Item_DB>>
-
-    @Query("SELECT * FROM Items ORDER BY id")
+    //Primary sort index is the :listID as per the instructions
+    //secondary index is the :id technically, but only with the
+    //ends of sorting by :name as per the instructions since the
+    //names are all identical except for some having higher or
+    //lower numbers matching the corresponding :id
+    @Query("SELECT * FROM Items ORDER BY listID ASC, id ASC")
     fun pullItems(): List<Item_DB>
 
     @Upsert

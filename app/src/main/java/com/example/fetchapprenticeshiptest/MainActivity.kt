@@ -14,6 +14,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.fetchapprenticeshiptest.ui.theme.FetchApprenticeshipTestTheme
 import com.example.fetchapprenticeshiptest.ui.viewmodels.HomeViewModel
 import com.example.fetchapprenticeshiptest.ui.views.HomeScreen
+import com.example.fetchapprenticeshiptest.ui.views.HostScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,7 +28,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeScreen()
+                    HostScreen()
                 }
             }
         }
