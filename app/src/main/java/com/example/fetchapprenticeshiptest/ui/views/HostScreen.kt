@@ -20,9 +20,13 @@ enum class Routes {
 @Composable
 fun HostScreen(homeViewModel: HomeViewModel = viewModel()) {
     val navController: NavHostController = rememberNavController()
+    val onSearch: (String) -> Unit =
+        {homeViewModel.searchText.value = it
+            homeViewModel.refreshViewModel()
 
+        }
     Scaffold(
-        topBar = { FetchTopAppBar() },
+        topBar = { FetchTopAppBar(onSearch) },
         content = {
                   NavHost(
                       navController = navController,

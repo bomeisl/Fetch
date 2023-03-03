@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -49,7 +50,7 @@ fun FetchBottomAppBar(navController: NavController) {
                             select4.value = false
                         },
                         icon = {
-                            Column() {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Icon(
                                     imageVector = Icons.Default.Home,
                                     contentDescription = "Home"
@@ -76,7 +77,7 @@ fun FetchBottomAppBar(navController: NavController) {
                             navController.navigate(Routes.PAGE1.name)
                                   },
                         icon = {
-                            Column() {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Icon(imageVector = Icons.Default.List, contentDescription = " ")
                                 Text(text = "List 1")
                             }
@@ -102,7 +103,7 @@ fun FetchBottomAppBar(navController: NavController) {
                             navController.navigate(Routes.PAGE2.name)
                                   },
                         icon = {
-                            Column() {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Icon(imageVector = Icons.Default.List, contentDescription = "")
                                 Text(text = "List 2")
                             }
@@ -125,7 +126,9 @@ fun FetchBottomAppBar(navController: NavController) {
                             select4.value = false
                             navController.navigate(Routes.PAGE3.name) },
                         icon = {
-                            Column() {
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
                                 Icon(imageVector = Icons.Default.List, contentDescription = "")
                                 Text(text = "List 3")
                             }
@@ -149,7 +152,7 @@ fun FetchBottomAppBar(navController: NavController) {
                             navController.navigate(Routes.PAGE4.name)
                                   },
                         icon = {
-                            Column() {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Icon(imageVector = Icons.Default.List, contentDescription = "")
                                 Text(text = "List 4")
                             }

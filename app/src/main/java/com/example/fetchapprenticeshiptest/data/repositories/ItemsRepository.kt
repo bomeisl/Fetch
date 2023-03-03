@@ -6,7 +6,7 @@ import com.example.fetchapprenticeshiptest.data.network.ItemsDataSource
 import com.example.fetchapprenticeshiptest.data.network.toDB
 import javax.inject.Inject
 
-class ItemsRepository @Inject constructor(val itemDao: ItemDao, val itemsDataSource: ItemsDataSource) {
+class ItemsRepository @Inject constructor(private val itemDao: ItemDao, private val itemsDataSource: ItemsDataSource) {
 
     suspend fun refreshDatabase() {
         val newItemList = itemsDataSource.getItemsList()

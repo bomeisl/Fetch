@@ -23,7 +23,8 @@ fun Item_Network.toDB(): Item_DB =
     )
 
 
-
+//In case any of the Json fields are null or blank, we'll filter them out at
+//the network call level
 class ItemsDataSource @Inject constructor(private val ktorClient: HttpClient) {
 
     suspend fun getItemsList(): List<Item_Network> {
