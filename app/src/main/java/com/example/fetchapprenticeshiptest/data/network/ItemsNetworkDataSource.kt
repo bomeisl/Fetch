@@ -6,21 +6,32 @@ import io.ktor.client.call.body
 import io.ktor.client.request.get
 import javax.inject.Inject
 
+
 data class Item_Network(
-    val id: Int,
-    val list_id: Int,
+    val id: String,
+    val listId: String,
     val name: String
 )
 
-fun Item_Network.toDB(): Item_DB = Item_DB(
-    id = id,
-    list_id - list_id,
+
+
+fun Item_Network.toDB(): Item_DB =
+    Item_DB(
+    id = id.toInt(),
+    listID = listId.toInt(),
     name = name
-)
+    )
+
+
 
 class ItemsDataSource @Inject constructor(private val ktorClient: HttpClient) {
 
-    suspend fun getDailyQuoteList(): List<Item_Network> =
-        ktorClient.get("https://fetch-hiring.s3.amazonaws.com/hiring.json").body()
+    suspend fun getItemsList(): List<Item_Network> {
+        val response: List<Item_Network> = ktorClient.get("https://fetch-hiring.s3.amazonaws.com/hiring.json").body()
+        return response
+            .filter { !it.id.isNullOrBlank() }
+            .filter { !it.listId.isNullOrBlank() }
+            .filter { !it.name.isNullOrBlank() }
+    }
 
 }

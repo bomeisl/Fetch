@@ -11,9 +11,9 @@ import kotlinx.coroutines.flow.Flow
 
 @Entity(tableName = "Items")
 data class Item_DB(
-    @PrimaryKey @ColumnInfo("id") val id: Int,
-    @ColumnInfo("listID") val listID: Int,
-    @ColumnInfo("name") val name: String
+    @PrimaryKey @ColumnInfo("id") var id: Int,
+    @ColumnInfo("listID") var listID: Int,
+    @ColumnInfo("name") var name: String
 )
 
 @Dao
@@ -22,12 +22,14 @@ interface ItemDao {
     @Query("SELECT * FROM Items WHERE :listID = listID ORDER BY id")
     fun pullItembyListID(listID: Int): Flow<List<Item_DB>>
 
+    @Query("SELECT * FROM Items ORDER BY id")
+    fun pullItems(): List<Item_DB>
+
     @Upsert
     suspend fun upsertItem(item: Item_DB)
 
     @Delete
     suspend fun deleteItem(item: Item_DB)
-
 
 
 }
