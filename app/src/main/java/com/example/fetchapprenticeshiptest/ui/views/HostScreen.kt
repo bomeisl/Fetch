@@ -41,22 +41,22 @@ fun HostScreen(homeViewModel: HomeViewModel = viewModel()) {
 
                           composable(Routes.PAGE1.name) {
 
-                              ListID1Screen(item1List = homeViewModel.item1List)
+                              HomeScreen1(item1List = homeViewModel.item1List)
                           }
 
                           composable(Routes.PAGE2.name) {
 
-                              ListID2Screen(item2List = homeViewModel.item2List)
+                              HomeScreen2(item2List = homeViewModel.item2List)
                           }
 
                           composable(Routes.PAGE3.name) {
 
-                              ListID3Screen(item3List = homeViewModel.item3List)
+                              HomeScreen3(item3List = homeViewModel.item3List)
                           }
 
                           composable(Routes.PAGE4.name) {
 
-                              ListID4Screen(item4List = homeViewModel.item4List)
+                              HomeScreen4(item4List = homeViewModel.item4List)
                           }
                       }
                   },
