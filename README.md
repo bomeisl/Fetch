@@ -6,6 +6,7 @@ App is designed and laid out according to MVVM architecture, fully dependency in
 includes Unit Testing of each component and UI Instrumented Tests.
 
 The basic layout is as follows:
+
 I. Data Layer
 
   A. |Data Source| - makes GET calls to https://fetch-hiring.s3.amazonaws.com/hiring.json 
