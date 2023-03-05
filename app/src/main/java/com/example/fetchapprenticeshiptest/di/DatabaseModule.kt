@@ -29,4 +29,5 @@ object DatabaseModule {
             "fetch.db"
         ).build()
     }
+
 }

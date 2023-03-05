@@ -54,7 +54,8 @@ fun FetchTopAppBar(onSearch: (String) -> Unit) {
                             tint = Color.Black)
                               }
                 )
-            }
+            },
+            placeholder = { Text(text = "Search by Item ID", fontSize = 20.sp)}
         )
 
 

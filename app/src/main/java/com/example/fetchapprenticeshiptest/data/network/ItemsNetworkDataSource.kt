@@ -1,9 +1,13 @@
 package com.example.fetchapprenticeshiptest.data.network
 
 import com.example.fetchapprenticeshiptest.data.databases.Item_DB
+import dagger.hilt.android.qualifiers.ActivityContext
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.engine.HttpClientEngine
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
+import io.ktor.serialization.gson.gson
 import javax.inject.Inject
 
 
@@ -25,14 +29,16 @@ fun Item_Network.toDB(): Item_DB =
 
 //In case any of the Json fields are null or blank, we'll filter them out at
 //the network call level
-class ItemsDataSource @Inject constructor(private val ktorClient: HttpClient) {
+class ItemsDataSource @Inject constructor(private val engine: HttpClientEngine) {
+    val itemsClient: HttpClient =
+        HttpClient(engine) {
+            install(ContentNegotiation) {
+                gson()
+            }
+        }
 
     suspend fun getItemsList(): List<Item_Network> {
-        val response: List<Item_Network> = ktorClient.get("https://fetch-hiring.s3.amazonaws.com/hiring.json").body()
-        return response
-            .filter { !it.id.isNullOrBlank() }
-            .filter { !it.listId.isNullOrBlank() }
-            .filter { !it.name.isNullOrBlank() }
+        return itemsClient.get("https://fetch-hiring.s3.amazonaws.com/hiring.json").body()
     }
 
 }

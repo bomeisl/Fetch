@@ -4,8 +4,11 @@ import com.example.fetchapprenticeshiptest.data.network.ItemsDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ActivityContext
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.ktor.client.HttpClient
+import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.gson.gson
@@ -17,17 +20,13 @@ object DataSourceModule {
 
     @Singleton
     @Provides
-    fun ProvidesKtorClient(): HttpClient {
-        return HttpClient(CIO) {
-            install(ContentNegotiation) {
-                gson()
-            }
-        }
+    fun ProvidesHttpEngine(): HttpClientEngine {
+        return CIO.create()
     }
 
     @Singleton
     @Provides
-    fun ProvidesItemsNetworkDataSource(ktorClient: HttpClient): ItemsDataSource {
-        return ItemsDataSource(ktorClient)
+    fun ProvidesItemsNetworkDataSource(engine: HttpClientEngine): ItemsDataSource {
+        return ItemsDataSource(engine = engine)
     }
 }

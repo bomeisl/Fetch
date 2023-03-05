@@ -13,13 +13,16 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.qualifiers.ActivityContext
+import dagger.hilt.android.scopes.ViewModelScoped
 
 @InstallIn(ActivityComponent::class)
 @Module
 object ViewModelModule {
 
     @Provides
-    fun ProvidesHomeViewModel(itemsRepository: ItemsRepository): HomeViewModel {
+    fun ProvidesHomeViewModel(
+        itemsRepository: ItemsRepository): HomeViewModel {
         val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(
