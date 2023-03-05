@@ -18,7 +18,7 @@ I. Data Layer
       
   C. |Item Repository| - Mediates the business logic for data retrieval and storage between the Room
       database and Ktor network client to supply the View Model with suspend function methods to 
-      refresh the database and keep and up-to-date SharedFlow stream of Items supplied to the View
+      refresh the database and keep an up-to-date SharedFlow stream of Items supplied to the View
       Model
       
 II. UI Layer 
