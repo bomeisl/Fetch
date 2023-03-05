@@ -1,6 +1,5 @@
 package com.example.fetchapprenticeshiptest.ui.views
 
-import android.content.ClipData.Item
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -18,7 +17,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -28,13 +27,17 @@ import com.example.fetchapprenticeshiptest.ui.theme.Forest5
 import kotlinx.coroutines.flow.StateFlow
 
 @Composable
-fun HomeScreen(listofItems: StateFlow<List<Item_DB>>) {
+fun HomeScreen(
+    listofItems: StateFlow<List<Item_DB>>,
+    modifier: Modifier = Modifier.testTag("home_screen")
+) {
 
     val itemList: State<List<Item_DB>> = listofItems.collectAsState()
 
     LazyColumn(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .testTag("lazy_column"),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         item{Spacer(modifier = Modifier.height(100.dp))}
@@ -52,7 +55,8 @@ fun HomeScreen(listofItems: StateFlow<List<Item_DB>>) {
 fun ItemCard(item: Item_DB) {
     Card(
         modifier = Modifier
-            .padding(10.dp),
+            .padding(10.dp)
+            .testTag("card"),
         colors = CardDefaults.cardColors(
             containerColor = Forest5
         )

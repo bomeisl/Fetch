@@ -17,12 +17,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.fetchapprenticeshiptest.ui.theme.Purple40
 
 @Composable
-fun FetchBottomAppBar(navController: NavController) {
+fun FetchBottomAppBar(
+    navController: NavController
+) {
     var selectHome = remember { mutableStateOf(true) }
     var select1 = remember { mutableStateOf(false) }
     var select2 = remember { mutableStateOf(false) }
@@ -30,7 +33,8 @@ fun FetchBottomAppBar(navController: NavController) {
     var select4 = remember { mutableStateOf(false) }
 
     BottomAppBar(
-        modifier = Modifier,
+        modifier = Modifier
+            .testTag("bottom_bar"),
         containerColor = Purple40,
         contentColor = Color.White,
         tonalElevation = 10.dp,
@@ -165,7 +169,6 @@ fun FetchBottomAppBar(navController: NavController) {
                                 indicatorColor = Purple40,
                             )
                     )
-
 
                 }
 

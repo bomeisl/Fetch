@@ -18,13 +18,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fetchapprenticeshiptest.data.databases.Item_DB
 import com.example.fetchapprenticeshiptest.ui.theme.Forest1
-import com.example.fetchapprenticeshiptest.ui.theme.Purple80
 import kotlinx.coroutines.flow.StateFlow
 
 @Composable
@@ -52,7 +52,8 @@ fun HomeScreen1(item1List: StateFlow<List<Item_DB>>) {
 fun ItemCard1(item: Item_DB) {
     Card(
         modifier = Modifier
-            .padding(10.dp),
+            .padding(10.dp)
+            .testTag("card1"),
         colors = CardDefaults.cardColors(
             containerColor = Forest1,
             contentColor = Color.Black
