@@ -29,6 +29,7 @@ II. UI Layer
       
   B. |Compose UI| - The end user can navigate between the home screen which displays all Items listed with
       the information requested in the instruction specifications in an aesthetically pleasing and intuitive
-      way. Features a search bar on the top of the UI where a user can search for specific Items by 'ID.'
+      way and 4 other screens displaying a list filtered by 'ListID' via Compose-Navigation. Features a search 
+      bar on the top of the UI where a user can search for specific Items by 'ID.'
       As the user types out an 'ID' integer in the search bar, the UI filters out results in real time to
       only leave Items on the screen that conform to the search parameters
